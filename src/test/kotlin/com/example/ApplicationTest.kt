@@ -9,7 +9,10 @@ import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlin.test.*
 import io.ktor.server.testing.*
-import com.example.plugins.*
+
+import com.example.plugins.configureRouting
+import com.example.plugins.configureSerialization
+import com.example.models.Customer
 
 class ApplicationTest {
     @Test
@@ -17,9 +20,24 @@ class ApplicationTest {
         application {
             configureRouting()
         }
-        client.get("/").apply {
+        client.get("/customer").apply {
             assertEquals(HttpStatusCode.OK, status)
-            assertEquals("Hello World!", bodyAsText())
+            assertEquals("No customers found", bodyAsText())
         }
+    }
+
+    @Test
+    fun testPostCustomer() = testApplication {
+        application {
+            configureRouting()
+	    configureSerialization()
+        }
+
+        val response = client.post("/customer") {
+	    contentType(ContentType.Application.Json)
+	    setBody(Customer("3", "Hello", "World", "teste@gmail.com").toString())
+	}
+
+	assertEquals("", response.bodyAsText())
     }
 }

@@ -1,16 +1,22 @@
 package com.example.plugins
 
 import io.ktor.server.routing.*
-import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.request.*
 
-fun Application.configureRouting() {
+import com.example.customer.routes.customerRouting
+import com.example.order.routes.listOrdersRoute
+import com.example.order.routes.getOrderRoute
+import com.example.order.routes.totalizeOrderRoute
+import com.example.user.routes.loginRouting
 
+import com.example.services.TokenProviderService
+
+fun Application.configureRouting(tokenProviderService: TokenProviderService) {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
-        }
+	customerRouting()
+	loginRouting(tokenProviderService)
+	listOrdersRoute()
+	getOrderRoute()
+	totalizeOrderRoute()
     }
 }
