@@ -1,0 +1,20 @@
+* Example Ktor API
+
+[[https://github.com/ktorio/ktor-get-started-sample][This project was created from ktor-get-started-sample]]
+
+[[https://ktor.io/docs/creating-http-apis.html][Following Ktor tutorial to get started]]
+
+This repository is for study only, none of the implementatios made here should be considered to be used in production.
+
+** Things that I want to implement here
+
+*** COMPLETED Endpoint to authenticate using JWT
+CLOSED: [2023-03-17 Fri 15:46]
+:LOGBOOK:
+- State "COMPLETED"  from "DOING"      [2023-03-17 Fri 15:46]
+:END:
+
+*** TODO Connect to a database for persistence
+Maybe a SQLite?
+
+*** TODO Connect into an API to get data and parse it
