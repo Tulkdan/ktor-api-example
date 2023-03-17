@@ -14,7 +14,18 @@ CLOSED: [2023-03-17 Fri 15:46]
 - State "COMPLETED"  from "DOING"      [2023-03-17 Fri 15:46]
 :END:
 
+*** COMPLETED Add postman collection
+CLOSED: [2023-03-17 Fri 16:03]
+:LOGBOOK:
+- State "COMPLETED"  from "DOING"      [2023-03-17 Fri 16:03]
+:END:
+
 *** TODO Connect to a database for persistence
-Maybe a SQLite?
+Possible options:
+- [ ] SQLite
+- [ ] Postgres
+
+*** TODO Dockerize project
+Let's use [[https://podman.io/][podman]] for it
 
 *** TODO Connect into an API to get data and parse it
